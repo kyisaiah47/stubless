@@ -1,0 +1,32 @@
+name: verify against real repositories
+# Not part of the merge gate. This is the evidence that stubless works against RuleStack's
+# live API and against real repositories, not only the offline stub in test/run.sh.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * 1'
+jobs:
+  third-party:
+    # google/benchmark carries a real root AGENTS.md, found by GitHub code search 2026-09-04.
+    # This is not ours, so its score is not a merge condition: report-only.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: google/benchmark
+      - uses: kyisaiah47/stubless@v1
+        with:
+          threshold: '0'
+
+  kynth-studios-product:
+    # deferless: a real, public Kynth Studios product, built and used in production
+    # (see its own README). Its AGENTS.md is the plan and the fixture in the same repo.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: kyisaiah47/deferless
+      - uses: kyisaiah47/stubless@v1
+        with:
+          threshold: '60'

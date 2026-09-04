@@ -1,0 +1,72 @@
+name: 'RuleStack agent config score'
+description: 'Score this repository AGENTS.md, CLAUDE.md, Cursor, Copilot, Windsurf, Gemini and Cline files against RuleStack, and fail below a threshold.'
+author: 'Kynth Studios'
+
+branding:
+  icon: 'file-text'
+  color: 'purple'
+
+inputs:
+  threshold:
+    description: >-
+      Fail the job when the repository score is below this, 0 to 100. The repository score is the
+      strongest recognised file, which is what RuleStack own badge reports. Default 60.
+    required: false
+    default: '60'
+  per-file-threshold:
+    description: >-
+      Optional second gate. When set, every recognised file must reach this score, not only the
+      strongest one. Leave unset to score the repository the way the badge does.
+    required: false
+    default: ''
+  badge:
+    description: 'Print the RuleStack badge markdown in the job summary. Default true.'
+    required: false
+    default: 'true'
+  workspace:
+    description: 'Directory to walk. Defaults to the checked-out workspace.'
+    required: false
+    default: ''
+  api:
+    description: 'RuleStack base URL. Only change this to point at a local RuleStack.'
+    required: false
+    default: 'https://rulestack.kynth.studio'
+  timeout:
+    description: 'Seconds to wait on each RuleStack request before the run becomes exit 2. Default 60.'
+    required: false
+    default: '60'
+
+outputs:
+  score:
+    description: 'The repository score, 0 to 100. The strongest recognised file.'
+    value: ${{ steps.stubless.outputs.score }}
+  best-file:
+    description: 'Path of the file the repository score came from.'
+    value: ${{ steps.stubless.outputs.best-file }}
+  files:
+    description: 'How many agent instruction files were recognised and scored.'
+    value: ${{ steps.stubless.outputs.files }}
+  badge:
+    description: 'Markdown for the RuleStack badge for this repository.'
+    value: ${{ steps.stubless.outputs.badge }}
+  report-path:
+    description: 'Path to the full JSON response, written under RUNNER_TEMP.'
+    value: ${{ steps.stubless.outputs.report-path }}
+
+runs:
+  using: 'composite'
+  steps:
+    # Composite rather than a JavaScript action for one reason: this repository is ESM with no
+    # build step and no dependencies, and `node <file>.mjs` is unambiguous about that. There is
+    # nothing to install, nothing to bundle, and no dist/ that can drift from src/.
+    - id: stubless
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/bin/stubless.mjs"
+      env:
+        STUBLESS_THRESHOLD: ${{ inputs.threshold }}
+        STUBLESS_PER_FILE_THRESHOLD: ${{ inputs.per-file-threshold }}
+        STUBLESS_BADGE: ${{ inputs.badge }}
+        STUBLESS_WORKSPACE: ${{ inputs.workspace }}
+        STUBLESS_API: ${{ inputs.api }}
+        STUBLESS_TIMEOUT: ${{ inputs.timeout }}
+        STUBLESS_REPO: ${{ github.repository }}

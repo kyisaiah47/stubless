@@ -1,0 +1,44 @@
+{
+  "name": "stubless",
+  "version": "0.1.0",
+  "description": "GitHub Action: score a repository's AGENTS.md, CLAUDE.md and other agent-instruction files against RuleStack and fail the job below a threshold.",
+  "type": "module",
+  "bin": {
+    "stubless": "bin/stubless.mjs"
+  },
+  "files": [
+    "action.yml",
+    "bin",
+    "src",
+    "test",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "bash test/run.sh",
+    "gate": "node bin/stubless.mjs gate"
+  },
+  "keywords": [
+    "github-actions",
+    "ai-agents",
+    "agents-md",
+    "claude-code",
+    "rulestack",
+    "ci",
+    "gate"
+  ],
+  "license": "MIT",
+  "author": "Kynth Studios (https://kynth.studio)",
+  "homepage": "https://github.com/kyisaiah47/stubless#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyisaiah47/stubless.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kyisaiah47/stubless/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}
