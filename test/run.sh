@@ -6,6 +6,14 @@
 set -u
 cd "$(dirname "$0")/.."
 
+# The runner exports GITHUB_STEP_SUMMARY and GITHUB_OUTPUT into every step, not only a composite
+# action's own step. Left set, src/gh.mjs's summary()/setOutput() write to those files instead of
+# stdout, and an assert_contains reading $OUT would find nothing even on a passing run. This
+# repository's own CI happened not to expose it (the final console.log line covers the one
+# assertion that checks OUT), but leakless's sibling suite did fail on it, so this is unset here
+# too rather than relying on that coincidence.
+unset GITHUB_STEP_SUMMARY GITHUB_OUTPUT
+
 TMP="$(mktemp -d)"
 STUB_PID=""
 FAIL=0
