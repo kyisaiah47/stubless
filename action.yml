@@ -1,6 +1,6 @@
 name: 'RuleStack agent config score'
 description: 'Score this repository AGENTS.md, CLAUDE.md, Cursor, Copilot, Windsurf, Gemini and Cline files against RuleStack, and fail below a threshold.'
-author: 'Kynth Studios'
+author: 'Compound Labs'
 
 branding:
   icon: 'file-text'

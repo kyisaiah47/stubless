@@ -172,4 +172,4 @@ itself to the same standard: no `--force`, no allowlist, no known-issues file.
 
 ## Licence
 
-MIT. Built and used in production by [Kynth Studios](https://kynth.studio).
+MIT. Built and used in production by [Compound Labs](https://thecompound.tech).

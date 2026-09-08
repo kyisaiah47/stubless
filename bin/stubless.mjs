@@ -32,7 +32,7 @@ Environment, which is how the action passes its inputs:
   STUBLESS_THRESHOLD            0 to 100, default 60. The repository score is the strongest file.
   STUBLESS_PER_FILE_THRESHOLD   optional second gate: every file must reach this too
   STUBLESS_WORKSPACE            directory to walk, default the git checkout
-  STUBLESS_API                  RuleStack base URL, default https://rulestack.kynth.studio
+  STUBLESS_API                  RuleStack base URL, default https://rulestack.thecompound.tech
   STUBLESS_BADGE                false to leave the badge markdown out of the summary
   STUBLESS_TIMEOUT              seconds per request before the run becomes exit 2, default 60
 

@@ -25,7 +25,7 @@ import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { annotate, summary, setOutput, fetchJson } from './gh.mjs';
 
-const API = (process.env.STUBLESS_API || 'https://rulestack.kynth.studio').replace(/\/+$/, '');
+const API = (process.env.STUBLESS_API || 'https://rulestack.thecompound.tech').replace(/\/+$/, '');
 const WORKSPACE = process.env.STUBLESS_WORKSPACE || process.env.GITHUB_WORKSPACE || process.cwd();
 const REPO = process.env.STUBLESS_REPO || process.env.GITHUB_REPOSITORY || '';
 const SHOW_BADGE = (process.env.STUBLESS_BADGE || 'true').toLowerCase() !== 'false';
@@ -143,7 +143,7 @@ const run = async () => {
         `RuleStack recognises: ${names.map((n) => '`' + n + '`').join(', ')}.\n\n` +
         `Add one at the repository root. An [AGENTS.md](https://agents.md) is read by more agents ` +
         `than any other format; RuleStack's gallery of real ones is at ` +
-        `[rulestack.kynth.studio](https://rulestack.kynth.studio/configs?sort=quality).\n`,
+        `[rulestack.kynth.studio](https://rulestack.thecompound.tech/configs?sort=quality).\n`,
     );
     setOutput('score', '');
     setOutput('files', '0');
@@ -293,8 +293,8 @@ const run = async () => {
 
   md +=
     `\n<sub>Scored with the same classifier RuleStack runs over ` +
-    `[real repositories](https://rulestack.kynth.studio/configs) every night. ` +
-    `stubless is built and used in production by [Kynth Studios](https://kynth.studio).</sub>\n`;
+    `[real repositories](https://rulestack.thecompound.tech/configs) every night. ` +
+    `stubless is built and used in production by [Compound Labs](https://thecompound.tech).</sub>\n`;
 
   summary(md);
 
