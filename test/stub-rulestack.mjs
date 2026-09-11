@@ -118,7 +118,7 @@ const server = http.createServer((req, res) => {
       unrecognised: [],
       badge: body.repo
         ? {
-            markdown: `[![AGENTS.md](https://toolproof.kynth.studio/badge/rulestack/${body.repo}.svg)](https://rulestack.kynth.studio)`,
+            markdown: `[![AGENTS.md](https://toolproof.thecompound.tech/badge/rulestack/${body.repo}.svg)](https://rulestack.thecompound.tech)`,
             reads: 'the RuleStack nightly index',
             unindexedRendersAs: 'not indexed',
           }

@@ -30,7 +30,7 @@ inputs:
   api:
     description: 'RuleStack base URL. Only change this to point at a local RuleStack.'
     required: false
-    default: 'https://rulestack.kynth.studio'
+    default: 'https://rulestack.thecompound.tech'
   timeout:
     description: 'Seconds to wait on each RuleStack request before the run becomes exit 2. Default 60.'
     required: false

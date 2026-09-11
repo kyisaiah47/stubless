@@ -3,10 +3,10 @@
 [![gates](https://github.com/kyisaiah47/stubless/actions/workflows/ci.yml/badge.svg)](https://github.com/kyisaiah47/stubless/actions/workflows/ci.yml)
 [![licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 [![dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
-[![AGENTS.md](https://toolproof.kynth.studio/badge/rulestack/kyisaiah47/stubless.svg)](https://rulestack.kynth.studio)
+[![AGENTS.md](https://toolproof.thecompound.tech/badge/rulestack/kyisaiah47/stubless.svg)](https://rulestack.thecompound.tech)
 
 A GitHub Action that scores this repository's `AGENTS.md`, `CLAUDE.md` and the rest of the
-agent-instruction family against [RuleStack](https://rulestack.kynth.studio), prints the
+agent-instruction family against [RuleStack](https://rulestack.thecompound.tech), prints the
 per-capability breakdown as a job summary with annotations on the lines RuleStack flags, and
 fails the job below a threshold.
 
@@ -24,7 +24,7 @@ the way the [inputs](#inputs) table below documents):
 ```
 ## stubless
 
-1 agent instruction file scored by [RuleStack](https://rulestack.kynth.studio). The repository
+1 agent instruction file scored by [RuleStack](https://rulestack.thecompound.tech). The repository
 score is the strongest file, which is what RuleStack's own badge reports: **90/100**, at or above
 the threshold of 60.
 
@@ -47,7 +47,7 @@ the threshold of 60.
 ### Badge
 
 ​```markdown
-[![AGENTS.md](https://toolproof.kynth.studio/badge/rulestack/kyisaiah47/example.svg)](https://rulestack.kynth.studio)
+[![AGENTS.md](https://toolproof.thecompound.tech/badge/rulestack/kyisaiah47/example.svg)](https://rulestack.thecompound.tech)
 ​```
 
 That badge reads the RuleStack nightly index, not this run. Until the nightly crawl reaches a
@@ -83,7 +83,7 @@ jobs:
 | `per-file-threshold` | (unset) | Optional second gate: every recognised file must clear this too, not only the strongest one. Catches a weak file a strong one is hiding. |
 | `badge` | `true` | Print the RuleStack badge markdown in the job summary. |
 | `workspace` | checkout root | Directory to walk. |
-| `api` | `https://rulestack.kynth.studio` | RuleStack base URL. Only change this to point at a local RuleStack. |
+| `api` | `https://rulestack.thecompound.tech` | RuleStack base URL. Only change this to point at a local RuleStack. |
 | `timeout` | `60` | Seconds per RuleStack request before the run becomes exit 2. |
 
 ### Outputs
