@@ -9,7 +9,7 @@
  *   node test/stub-rulestack.mjs <mode>
  *
  * Prints the base URL on the first line of stdout, then serves until killed. The descriptor it
- * serves is the shape of the real one, read from https://rulestack.kynth.studio/api/score on
+ * serves is the shape of the real one, read from https://rulestack.thecompound.tech/api/score on
  * 2026-09-04; if the real shape changes, this stub is the thing that must change with it.
  */
 import http from 'node:http';

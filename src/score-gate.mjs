@@ -143,7 +143,7 @@ const run = async () => {
         `RuleStack recognises: ${names.map((n) => '`' + n + '`').join(', ')}.\n\n` +
         `Add one at the repository root. An [AGENTS.md](https://agents.md) is read by more agents ` +
         `than any other format; RuleStack's gallery of real ones is at ` +
-        `[rulestack.kynth.studio](https://rulestack.thecompound.tech/configs?sort=quality).\n`,
+        `[rulestack.thecompound.tech](https://rulestack.thecompound.tech/configs?sort=quality).\n`,
     );
     setOutput('score', '');
     setOutput('files', '0');
@@ -260,7 +260,7 @@ const run = async () => {
   let md =
     `## stubless\n\n` +
     `${files.length} agent instruction file${files.length === 1 ? '' : 's'} scored by ` +
-    `[RuleStack](https://rulestack.kynth.studio). The repository score is the strongest file, ` +
+    `[RuleStack](https://rulestack.thecompound.tech). The repository score is the strongest file, ` +
     `which is what RuleStack's own badge reports: ${verdict}\n\n` +
     `| File | Format | Score | Words | Headings | Commands | Topics |\n` +
     `| --- | --- | --: | --: | --: | --: | --: |\n${rows}\n\n` +
@@ -276,7 +276,7 @@ const run = async () => {
     md +=
       `\n**The breakdown and the score disagree** (${best.mismatch.view} against ${best.mismatch.score}). ` +
       `That is a defect in RuleStack's breakdown view, not in the score. Report it at ` +
-      `https://rulestack.kynth.studio.\n`;
+      `https://rulestack.thecompound.tech.\n`;
   }
   if (reasonList) md += `\n### What RuleStack flagged\n\n${reasonList}\n`;
 
