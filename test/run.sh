@@ -165,6 +165,13 @@ assert_exit 2 "$CODE" "an unknown flag is exit 2"
 OUT="$(node bin/stubless.mjs bogus 2>&1)"; CODE=$?
 assert_exit 2 "$CODE" "an unknown subcommand is exit 2"
 
+# help: --help after the subcommand prints usage and exits 0, as AGENTS.md documents it
+OUT="$(node bin/stubless.mjs gate --help 2>&1)"; CODE=$?
+assert_exit 0 "$CODE" "gate --help prints usage and exits 0"
+assert_contains "stubless gate" "$OUT" "gate --help prints the usage text"
+OUT="$(node bin/stubless.mjs --help 2>&1)"; CODE=$?
+assert_exit 0 "$CODE" "a bare --help prints usage and exits 0"
+
 echo
 echo "$CASE assertions."
 if [ "$FAIL" = "1" ]; then

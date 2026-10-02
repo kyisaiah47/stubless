@@ -120,9 +120,12 @@ descriptor cannot be fetched, this exits 2. It does not fall back to a guess.
 ## Local use
 
 ```sh
-npm i -D stubless
+npm i -D github:kyisaiah47/stubless
 npx stubless gate --threshold 80
 ```
+
+stubless is not published to the npm registry, so `npm i -D stubless` fails with a 404. Install
+from this GitHub repository as shown.
 
 No build step, no bundler, zero runtime dependencies. `node bin/stubless.mjs gate` runs the exact
 same code path the action does; flags map onto the same environment variables the action sets, so

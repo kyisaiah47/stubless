@@ -57,7 +57,7 @@ const FLAGS = {
   '--timeout': 'STUBLESS_TIMEOUT',
 };
 
-if (cmd === '-h' || cmd === '--help' || cmd === 'help') {
+if (cmd === 'help' || argv.includes('-h') || argv.includes('--help')) {
   console.log(HELP);
   process.exit(0);
 }
